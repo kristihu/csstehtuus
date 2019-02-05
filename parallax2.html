@@ -2,7 +2,7 @@
 <head>
     <title></title>
 
-    <!--meta-->
+    <!--meta tuliko päivitys-->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <style>
@@ -24,6 +24,7 @@
             overflow: hidden;
             background: url(tausta.png) no-repeat center center fixed;
             background-size: cover;
+
         }
 
 
@@ -33,8 +34,8 @@
             position: absolute;
             top: 30%;
             left: 20%;
-            width:225px;
-            height: 211px;
+            max-width: 5%;
+            height: auto;
         }
 
         .layer-2{
@@ -43,8 +44,8 @@
             position: absolute;
             top: 32%;
             left: 40%;
-            width:500px;
-            height: 496px;
+            max-width: 20%;
+            height: auto;
         }
         .layer-3{
             background-image: url(kala4.png);
@@ -52,28 +53,31 @@
             position: absolute;
             top: 32%;
             left: 60%;
-            width:500px;
-            height: 496px;
+            max-width: 20%;
+            height: auto;
         }
         .layer-4{
-            background-image: url(kala4.png);
+
             z-index: 1;
             position: absolute;
             top: 32%;
             left: 60%;
             bottom: 0;
-            width:500px;
-            height: 496px;
+            max-width: 20%;
+            height: auto;
         }
         .layer-5{
-            background-image: url(kala4.png);
-            z-index: 1;
+            background: url('sukeltaja.png') no-repeat;
+
+            background-size:contain;
+            height:200px;width:1200px;
+            z-index: 0;
             position: absolute;
             top: 32%;
             left: 10%;
             bottom: 0;
-            width:500px;
-            height: 496px;
+            max-width: 20%;
+
         }
         #mouse, #mouse-center {
             color: aliceblue;
@@ -98,7 +102,7 @@
         <img src="kala5.png" width="300">
     </div>
     <div class="layer-5">
-        <img src="sukeltaja.png" width="300">
+
     </div>
     <div id="mouse"></div><br>
     <div id="mouse-center"></div>
