@@ -1,0 +1,152 @@
+<html>
+<head>
+    <title></title>
+
+    <!--meta-->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <style>
+
+        body{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+            background:#F5F6F8;
+        }
+
+        .wrapper{
+
+            /* https://css-tricks.com/perfect-full-page-background-image/ */
+
+            width:100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            background: url(tausta.png) no-repeat center center fixed;
+            background-size: cover;
+        }
+
+
+        .layer-1{
+            background-image: url(kala.png);
+            z-index: 4;
+            position: absolute;
+            top: 30%;
+            left: 20%;
+            width:225px;
+            height: 211px;
+        }
+
+        .layer-2{
+            background-image: url(fisu3.png);
+            z-index: 3;
+            position: absolute;
+            top: 32%;
+            left: 40%;
+            width:500px;
+            height: 496px;
+        }
+        .layer-3{
+            background-image: url(kala4.png);
+            z-index: 2;
+            position: absolute;
+            top: 32%;
+            left: 60%;
+            width:500px;
+            height: 496px;
+        }
+        .layer-4{
+            background-image: url(kala4.png);
+            z-index: 1;
+            position: absolute;
+            top: 32%;
+            left: 60%;
+            bottom: 0;
+            width:500px;
+            height: 496px;
+        }
+        .layer-5{
+            background-image: url(kala4.png);
+            z-index: 1;
+            position: absolute;
+            top: 32%;
+            left: 10%;
+            bottom: 0;
+            width:500px;
+            height: 496px;
+        }
+        #mouse, #mouse-center {
+            color: aliceblue;
+            margin-top: 10px;
+        }
+
+    </style>
+
+</head>
+<body>
+<div class="wrapper">
+    <div class="layer-1">
+        <img src="kala.png" width="100%">
+    </div>
+    <div class="layer-2">
+        <img src="fisu3.png" width="100%">
+    </div>
+    <div class="layer-3">
+        <img src="kala4.png" width="100%">
+    </div>
+    <div class="layer-4">
+        <img src="kala5.png" width="300">
+    </div>
+    <div class="layer-5">
+        <img src="sukeltaja.png" width="300">
+    </div>
+    <div id="mouse"></div><br>
+    <div id="mouse-center"></div>
+</div>
+</body>
+
+<script>
+
+  const wrapper = document.querySelector('.wrapper');
+  const layerOne = document.querySelector('.layer-1');
+  const layerTwo = document.querySelector('.layer-2');
+  const layerThree = document.querySelector('.layer-3');
+  const layerFour = document.querySelector('.layer-4');
+  const layerFive = document.querySelector('.layer-5');
+  const mouse = document.querySelector('#mouse');
+  const mouse_center = document.querySelector('#mouse-center');
+
+  // Find page center
+  const cx = wrapper.clientWidth/2;
+  const cy = wrapper.clientHeight/2;
+
+  document.addEventListener('mousemove', (evt) => {
+
+    // https://www.w3schools.com/jsref/event_clientx.asp
+    // https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_event_mouse_screenxy_clientxy
+
+    let mouseX = evt.clientX,
+        mouseY = evt.clientY;
+
+    let coor = "From the top left<br> X: " + mouseX + ", Y: " + mouseY;
+    mouse.innerHTML = coor;
+
+    let from_center_x = cx - mouseX;
+    let from_center_y = cy - mouseY;
+
+    let coor2 = "From the center<br> X: " + from_center_x + ", Y: " + from_center_y;
+    mouse_center.innerHTML = coor2;
+
+    // https://www.w3schools.com/cssref/playit.asp?filename=playcss_transform_translatex
+
+    layerOne.style.transform = 'translateX(' + from_center_x/10 + '%) translateY(' + from_center_y/100 + '%)';
+    layerTwo.style.transform = 'translateX(' + from_center_x/100 + '%) translateY(' + from_center_y/250 + '%)';
+    layerThree.style.transform = 'translateX(' + from_center_x/25 + '%) translateY(' + from_center_y/25 + '%)';
+    layerFour.style.transform = 'translateX(' + from_center_x/75 + '%) translateY(' + from_center_y/50 + '%)';
+    layerFive.style.transform = 'translateX(' + from_center_x/300 + '%) translateY(' + from_center_y/300 + '%)';
+
+
+  });
+
+</script>
+</html>
